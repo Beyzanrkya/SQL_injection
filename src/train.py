@@ -120,18 +120,27 @@ class SQLModelTrainer:
         
         # Metriklerin Hesaplanması (Hocanın PDF'deki Accuracy, Precision, Recall, F1 kriterleri)
         metrics = {
-            "Model A (Metin ML)": self._calculate_metrics(y_test, y_pred_text),
-            "Model B (Graf ML)": self._calculate_metrics(y_test, y_pred_graph),
-            "Model C (Anomali Tespiti)": self._calculate_metrics(y_test, y_pred_anomaly)
+            "Text_ML": {
+                "name": "Metin ML (TF-IDF + Logistic Regression)",
+                **self._calculate_metrics(y_test, y_pred_text)
+            },
+            "Graph_ML": {
+                "name": "Graf ML (AST + Random Forest)",
+                **self._calculate_metrics(y_test, y_pred_graph)
+            },
+            "Anomaly_Detection": {
+                "name": "Anomali Tespiti (AST + Isolation Forest)",
+                **self._calculate_metrics(y_test, y_pred_anomaly)
+            }
         }
         
         print("\n=== Model Performans Sonucları ===")
-        for model_name, m_dict in metrics.items():
-            print(f"\n{model_name}:")
+        for key, m_dict in metrics.items():
+            print(f"\n{m_dict['name']}:")
             print(f"  Accuracy:  {m_dict['accuracy']:.4f}")
             print(f"  Precision: {m_dict['precision']:.4f}")
             print(f"  Recall:    {m_dict['recall']:.4f}")
-            print(f"  F1-Score:  {m_dict['f1_score']:.4f}")
+            print(f"  F1-Score:  {m_dict['f1']:.4f}")
             
         # Kaydetme islemleri
         os.makedirs('models', exist_ok=True)
@@ -153,7 +162,7 @@ class SQLModelTrainer:
             "accuracy": float(accuracy_score(y_true, y_pred)),
             "precision": float(precision_score(y_true, y_pred, zero_division=0)),
             "recall": float(recall_score(y_true, y_pred, zero_division=0)),
-            "f1_score": float(f1_score(y_true, y_pred, zero_division=0))
+            "f1": float(f1_score(y_true, y_pred, zero_division=0))
         }
 
 if __name__ == "__main__":
