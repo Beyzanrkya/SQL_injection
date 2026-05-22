@@ -18,7 +18,7 @@ Projeye herhangi bir kurulum yapmadan doğrudan internet üzerinden erişmek ve 
 
 ## 🎥 Proje Tanıtım Videosu (Presentation Video)
 Projenin detaylı anlatımını, kod yapısını ve canlı arayüzün test senaryolarını içeren sunum videosuna buradan erişebilirsiniz:
-👉 **[Buraya Video Linkinizi Yapıştırın (Örn: Loom, Drive veya YouTube)]**
+👉 **[https://www.youtube.com/watch?v=HLTm1E2WNdI](https://www.youtube.com/watch?v=HLTm1E2WNdI)**
 
 ---
 
