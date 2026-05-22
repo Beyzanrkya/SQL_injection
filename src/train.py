@@ -43,9 +43,11 @@ class SQLModelTrainer:
             raise FileNotFoundError(f"Veri seti bulunamadi: {self.data_path}")
             
         df = pd.read_csv(self.data_path)
+        print("Veri setindeki mevcut sütunlar:", df.columns.tolist())
         
-        # Veri setini temizle
-        df = df.dropna(subset=['Query', 'Label'])
+        # --- DÜZELTME BURADA ---
+        # Veri setini temizle ('Query' yerine 'Sentence' yazıldı)
+        df = df.dropna(subset=['Sentence', 'Label'])
         
         # Dengeli orneklem al (Her siniftan esit sayida)
         safe_df = df[df['Label'] == 0]
@@ -61,7 +63,10 @@ class SQLModelTrainer:
         # Graf ozelliklerini cikar
         print("2. Graf ozellikleri cikariliyor (AST Metrikleri)...")
         graph_features_list = []
-        for idx, query in enumerate(balanced_df['Query']):
+        
+        # --- DÜZELTME BURADA ---
+        # Veri setinden sorguları çekerken 'Query' yerine 'Sentence' kullanıldı
+        for idx, query in enumerate(balanced_df['Sentence']):
             feats = self.preprocessor.extract_graph_features(query)
             graph_features_list.append(feats)
             if (idx + 1) % 1000 == 0:
@@ -69,7 +74,9 @@ class SQLModelTrainer:
                 
         graph_df = pd.DataFrame(graph_features_list)
         
-        return balanced_df['Query'], graph_df, balanced_df['Label']
+        # --- DÜZELTME BURADA ---
+        # Geri dönüş değerinde de 'Query' yerine 'Sentence' kullanıldı
+        return balanced_df['Sentence'], graph_df, balanced_df['Label']
 
     def train_and_evaluate(self):
         """
