@@ -16,6 +16,12 @@ Projeye herhangi bir kurulum yapmadan doğrudan internet üzerinden erişmek ve 
 
 ---
 
+## 🎥 Proje Tanıtım Videosu (Presentation Video)
+Projenin detaylı anlatımını, kod yapısını ve canlı arayüzün test senaryolarını içeren sunum videosuna buradan erişebilirsiniz:
+👉 **[Buraya Video Linkinizi Yapıştırın (Örn: Loom, Drive veya YouTube)]**
+
+---
+
 ##  Projenin Amacı ve Önemi
 SQL Injection saldırıları web siteleri için oldukça önemlidir.Geleneksel imza tabanlı güvenlik duvarları(WAF), bilinen SQLi kalıplarını engellesede saldırganların bu filtreleri aşmak için geliştirdiği karmaşık mantıksal sorguları ve yeni nesil saldırı türlerini tespit edememektedir.SQL sorgularını sadece düz metin olarak incelemek yerine onları birer soyut sözdizilimi ağacı (AST ) graf yapısına dönüştürdük.Proje kapsamında metin tabanlı ve grafik tabanlı özellikler çıkararak makine öğrenmesi modelleri ile SQLi saldırılarını tespit etmeye çalıştık.Klasik filtreler '1=1' gibi yapıları yakalasa da daha karmaşık enjeksiyonları gözden kaçırabilir, bu yüzden yapay zekaya ihtiyaç duyarız.
 
