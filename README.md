@@ -12,7 +12,7 @@ Bu proje, bulut bilişim dersifinal projesi için geliştirlmiştir. Amacı, web
 
 ##  Canlı Uygulama Linki (Live Demo)
 Projeye herhangi bir kurulum yapmadan doğrudan internet üzerinden erişmek ve test etmek için:
-👉 **[https://beyzanrkya-sql-injection.streamlit.app/](https://beyzanrkya-sql-injection.streamlit.app/)**
+👉 **[https://beyzanur-sql-injection.streamlit.app/](https://beyzanur-sql-injection.streamlit.app/)**
 
 ---
 
